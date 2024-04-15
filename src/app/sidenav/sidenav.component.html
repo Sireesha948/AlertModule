@@ -1,0 +1,138 @@
+
+   <!-- <mat-sidenav-container  class="sidenav-container">
+    
+      <mat-sidenav #sidenav mode="side"  opened = "isExpanded" class="sidenav">
+     
+         <div>
+            <mat-list-item (click)= "isExpanded = !isExpanded">
+               
+            </mat-list-item>
+
+        </div>
+
+         <div class="logo-container  ">
+            <div class="logo-text">
+               <img src="https://assets.turbologo.com/blog/en/2021/07/26072303/unilever-958x575.png" class="logo-image">  
+            </div> 
+         </div>
+
+        <mat-nav-list>
+
+          <mat-list-item [routerLink]="'/'" routerLinkActive="active">
+            <i class="fa-solid fa-gauge icon-image" #icon  [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span  *ngIf = "isExpanded" class="menu-item">Summary Dashboard</span>
+          </mat-list-item>
+    
+          <mat-list-item [routerLink]="'measure'">            
+            <i class="fa-solid fa-ruler-vertical icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span  *ngIf = "isExpanded" class="menu-item">Measure</span>
+          </mat-list-item>
+    
+          <mat-list-item [routerLink]="'movement'">
+            <i class="fa-solid fa-coins icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span  *ngIf = "isExpanded" class="menu-item">Mt_Movement</span>
+          </mat-list-item>
+   
+          <mat-list-item [routerLink]="'calculation'">
+            <i class="fa-solid fa-percent icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span  *ngIf = "isExpanded" class="menu-item">Flow Calculation</span>
+          </mat-list-item>
+    
+          <mat-list-item [routerLink]="'variance'">
+            <i class="fa-regular fa-image icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span *ngIf = "isExpanded" class="menu-item">Variance Review</span>
+          </mat-list-item>
+          
+          <mat-list-item [routerLink]="'alert'">
+            <i class="fa-solid fa-file-pdf icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span *ngIf = "isExpanded" class="menu-item" >Alert Module</span>
+          </mat-list-item>
+   
+          <mat-list-item [routerLink]="'sap'">
+            <i class="fa-regular fa-image icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span *ngIf = "isExpanded" class="menu-item">SAP Postings</span>
+          </mat-list-item>
+   
+   
+          <mat-list-item [routerLink]="'reports'">
+            <i class="fa-solid fa-bug icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+            <span  *ngIf = "isExpanded" class="menu-item">Reports</span>
+          </mat-list-item>
+   
+        </mat-nav-list>
+
+       <div class ="bottom-container">
+
+        <mat-list-item [routerLink]="'sap'">
+          <i class="fa-regular fa-image icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+          <span *ngIf = "isExpanded" class="paragraph">Configuration</span>
+        </mat-list-item>
+ 
+ 
+        <mat-list-item [routerLink]="'reports'">
+          <i class="fa-solid fa-file-pdf logo icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+          <span  *ngIf = "isExpanded" class="paragraph">User Management</span>
+        </mat-list-item>
+
+        <mat-list-item [routerLink]="'logout'">
+          <i class="fa-solid fa-coins logo icon-image" [ngClass]= "!isExpanded? 'side-mat-list-item':''"></i>
+          <span  *ngIf = "isExpanded" class="paragraph">Logout</span>
+        </mat-list-item>
+       </div>
+          
+      </mat-sidenav>
+      
+      <mat-sidenav-content class="sidenav-content">
+         
+        <mat-toolbar class="toolbar" >
+          <h1 class="efficiency-header">Technical Efficiency</h1>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon" aria-label="Location">
+              <mat-icon>location_on</mat-icon>
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Notifications">
+             <mat-icon>notifications</mat-icon> 
+          </button>
+          <button mat-icon-button aria-label="Account">
+             <mat-icon>account_circle</mat-icon>
+           </button>
+       </mat-toolbar>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+     
+     </mat-sidenav-container> 
+   -->
+
+
+<div class="sidenav sidenav-nav" [ngClass] = "collapsed ? 'sidenav-collapsed': ''">
+        
+  
+       <div class = "logo-container">        
+              <div class="logo">
+                <div class="logo-text" (click)="toggleCollapse()">
+                   <img src="https://assets.turbologo.com/blog/en/2021/07/26072303/unilever-958x575.png" class="logo-image">  
+                </div> 
+             </div>
+        </div>
+
+       
+             <ul class="sidenav-nav">
+                  <li class="sidenav-nav-item" *ngFor= "let d of navData">
+                      <a class= "sidenav-nav-link" [routerLink]= "d. routerlink" [ngStyle]="{'justify-content':!collapsed? 'center':'flex-start'}">
+                          <i class="sidenav-link-icon" [class]= "d.icon"></i>
+                          <span class="sidenav-link-text" *ngIf= "collapsed">{{d.label}}</span>
+                      </a>
+                  </li>       
+              </ul> 
+
+              <ul class="sidenav-nav second">
+                <li class="sidenav-nav-item" *ngFor= "let data of uData">
+                  <a  class= "sidenav-nav-link" [routerLink]= "data.routerLink"  [ngStyle]="{'justify-content':!collapsed? 'center':'flex-start'}">
+                      <i class="sidenav-link-icon" [class]= "data.icon"></i>
+                      <span class="sidenav-link-text" *ngIf= "collapsed">{{data.label}}</span>
+                  </a>
+                </li>
+              </ul>        
+         </div>
+

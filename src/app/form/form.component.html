@@ -1,0 +1,9 @@
+<h1 mat-dialog-title class="file-heading"> Enter a file name: <span class="close-icon" (click) = "closeDialog()">X</span></h1>
+<div mat-dialog-content>
+    <mat-form-field class="dialog-input justify-content-center" appearance="outline">
+        <input matInput [(ngModel)]= "data.name">
+    </mat-form-field>
+    <div mat-dialog-actions class="justify-content-center">
+        <button mat-raised-button [mat-dialog-close]="data.name"  color="primary">Download</button>
+    </div>
+</div>

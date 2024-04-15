@@ -1,0 +1,100 @@
+
+  <div class="bg-container">
+    <div class="d-flex flex-row justify-content-start">
+       <div class="alert-container pb-5 ">
+         <p class="m">Alert Monitor</p>
+        </div>
+    </div> 
+ </div> 
+
+ 
+ 
+<div class="date-container">
+
+ 
+      
+
+      <div class="date-shift-container">
+          <mat-label>Date and shift time *</mat-label>
+          <br>
+
+          <div class="input-container">
+              <mat-form-field appearance="outline" style="height:2px;">
+                <input matInput [matDatepicker]="picker" type="text" >
+                <mat-icon matSuffix (click)="picker.open()">arrow_drop_down</mat-icon>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>  
+          </div>  
+
+          <button mat-raised-button color="primary" (click)= "add()" class="float-end">Click</button>
+       </div>
+
+        
+   
+</div>
+
+ <div class = "main-container" class="mat-elevation-z8">
+    <div *ngIf= "is_Show" class="table-container">
+      <table mat-table [dataSource]= "dataSource" #table  class="table-data">
+        
+        
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef>Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+        </ng-container>
+      
+      
+        <ng-container matColumnDef="Time">
+          <th mat-header-cell *matHeaderCellDef>Time</th>
+          <td mat-cell *matCellDef="let element"> {{element.Time}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Unit">
+          <th mat-header-cell *matHeaderCellDef> Unit</th>
+          <td mat-cell *matCellDef="let element"> {{element.Unit}} </td>
+        </ng-container>
+      
+    
+        <ng-container matColumnDef="Zone">
+          <th mat-header-cell *matHeaderCellDef> Zone </th>
+          <td mat-cell *matCellDef="let element"> {{element.Zone}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="AlertID">
+            <th mat-header-cell *matHeaderCellDef> AlertId </th>
+            <td mat-cell *matCellDef="let element"> {{element.AlertID}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="Alert_Description">
+            <th mat-header-cell *matHeaderCellDef> AlertDescription </th>
+            <td mat-cell *matCellDef="let element"> {{element.Alert_Description}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="Action_Taken">
+            <th mat-header-cell *matHeaderCellDef> Action_Taken </th>
+            <td mat-cell *matCellDef="let element"> {{element.Action_Taken}} </td>
+          </ng-container>
+          
+
+          <ng-container matColumnDef="TECH_EFF">
+            <th mat-header-cell *matHeaderCellDef> TECH_EFF % </th>
+            
+            <td mat-cell *matCellDef="let element"> 
+                
+                <button mat-raised-button [ngStyle]="{'background-color':element.TECH_EFF > 5 ? 'red':'rgb(70, 70, 3)', 'color':'white'}">{{element.TECH_EFF}}</button>
+
+            </td>
+          </ng-container>
+          
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+
+    <div>
+      <mat-paginator [ngClass] = "{'paginator-hidden': !is_paginationVisible}" [pageSizeOptions]= "[2,4]" showFirstLastButtons></mat-paginator>
+    </div>
+
+ </div>

@@ -1,0 +1,16 @@
+.dialog-input{
+    width:350px;
+    text-align: center;
+    margin-left:50px;
+    margin-top: 20px;
+}
+.file-heading{
+    color:rgb(38, 38, 229);
+    font-weight: bold;
+}
+.close-icon{
+    cursor: pointer;
+    float:right;
+    color: rgb(212, 19, 19);
+    margin-top:15px;
+}

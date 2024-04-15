@@ -1,0 +1,36 @@
+.efficiency-header{
+    color:rgb(3, 3, 122);
+    font-family:"roboto";
+    font-size:30px;
+    padding-left:30px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+    margin-left:1000px;
+  }
+  .p{
+    font-size:10px;
+  } 
+  
+  .head{
+    width:calc(100% - 5rem);
+    margin-left:5rem;
+    z-index:1;
+    transition:all .5s ease;
+    background:#f4f7fa;
+    /* padding: 1rem 1rem 0 1.5rem; */
+
+    position:fixed;
+    top:0;
+
+}
+.head-trimmed{
+    width:calc(100% - 16.5625rem);
+    margin-left:16.5625rem;
+
+}
+.head-md-screen{
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+}

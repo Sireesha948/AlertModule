@@ -1,0 +1,119 @@
+<p>Measure works!</p>
+
+
+
+
+
+<div class="bg-container">
+    <div class="d-flex flex-row justify-content-start">
+       <div class="alert-container pb-5 header">
+        <p class="m">Measure</p> 
+        </div>
+    </div>
+</div> 
+
+
+
+
+<div class="main d-flex flex-row">
+
+    <div class="date-shift-container">
+        <mat-label class="label">Unit *</mat-label>
+        <br>
+        <div class="input-container">
+            <mat-form-field appearance="outline">
+                <mat-select  name="unit">
+                   <mat-option></mat-option>
+                </mat-select>
+            </mat-form-field>  
+        </div>  
+     </div>
+
+    
+
+     <div class="date-shift-container">
+        <mat-label class="label">Zone/Stage *</mat-label>
+        <br>
+        <div class="input-container">
+            <mat-form-field appearance="outline">
+                <mat-select  name="unit">
+                    <mat-option></mat-option>
+                 </mat-select>
+            </mat-form-field>  
+        </div>  
+     </div>
+
+
+     <div class="date-shift-container">
+        <mat-label class="label">Asset *</mat-label>
+        <br>
+        <div class="input-container">
+            <mat-form-field appearance="outline">
+                <mat-select  name="unit">
+                    <mat-option></mat-option>
+                 </mat-select>
+            </mat-form-field>  
+        </div>  
+     </div>
+
+
+     <div class="date-shift-container">
+        <mat-label class="label">Tags *</mat-label>
+        <br>
+        <div class="input-container">
+            <mat-form-field appearance="outline">
+                <mat-select  name="unit">
+                    <mat-option></mat-option>
+                 </mat-select>
+            </mat-form-field>  
+        </div>  
+     </div>
+
+
+
+
+
+    <div class="date-shift-container">
+        <mat-label class="label">Date and shift time *</mat-label>
+        <br>
+        <div class="input-container">
+            <mat-form-field appearance="outline">
+              <input matInput  type="text"  [value] = "selectedDate | date: 'MM/dd/yy'" >
+              <mat-icon matSuffix (click) = "isDropdownShow()">arrow_drop_down</mat-icon>  
+            </mat-form-field>  
+
+            <div class="d-flex flex-row" *ngIf= "dropdown">
+                <mat-card >
+                    <section style="width: 300px;">
+                        <mat-calendar (selectedChange) = "onDateSelected($event)"></mat-calendar>
+                     </section>
+                </mat-card>
+                <mat-card>
+                    <section style = "width:300px;">
+                        <label class="shift">Shift</label>
+                            <div>
+                                <p><mat-checkbox color = "primary" (change) = "toggleText(1)">Shift A   <span class="shift">06:00-14:00</span> </mat-checkbox>   <span *ngIf="isChecked[1]">Current</span> </p>
+                                <p><mat-checkbox color = "primary" (change) = "toggleText(2)">Shift B   <span class="shift">14:00-22:00</span></mat-checkbox> <span *ngIf="isChecked[2]">Current</span> </p>
+                                <p><mat-checkbox color = "primary" (change) = "toggleText(3)">Shift C   <span class="shift">06:00-06:00</span></mat-checkbox> <span *ngIf="isChecked[3]">Current</span></p>
+                                <p [style.color]= "'#00ffff'" [style.font-size.px]= "20" [style.margin] = "'40px'" [style.font-family] = "'Roboto'"> Daily   <span [style.color]="'black'"  [style.font-size.px] = "'15'" [style.margin-left.px] = "'30'">06:00-06:00</span></p>
+                            </div>            
+                    </section>
+                </mat-card>
+            </div>
+        </div>  
+     </div>   
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
